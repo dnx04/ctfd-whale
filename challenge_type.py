@@ -1,14 +1,12 @@
 from flask import Blueprint
 
-from CTFd.models import (
-    db,
-    Flags,
-)
+from CTFd.models import Flags, db
 from CTFd.plugins.challenges import BaseChallenge
 from CTFd.plugins.dynamic_challenges import DynamicValueChallenge
 from CTFd.plugins.flags import get_flag_class
 from CTFd.utils import user as current_user
-from .models import WhaleContainer, DynamicDockerChallenge
+
+from .models import DynamicDockerChallenge, WhaleContainer
 from .utils.control import ControlUtil
 
 
@@ -56,7 +54,7 @@ class DynamicValueDockerChallenge(BaseChallenge):
             # We need to set these to floats so that the next operations don't operate on strings
             if attr in ("initial", "minimum", "decay"):
                 value = float(value)
-            if attr == 'dynamic_score':
+            if attr == "dynamic_score":
                 value = int(value)
             setattr(challenge, attr, value)
 

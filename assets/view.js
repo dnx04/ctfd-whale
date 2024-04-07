@@ -40,7 +40,7 @@ function loadInfo() {
             window.t = undefined;
         }
         if (response.success) response = response.data;
-        else CTFd._functions.events.eventAlert({
+        else CTFd._functions.events.eventToast({
             title: "Fail",
             html: response.message,
             button: "OK"
@@ -98,13 +98,13 @@ CTFd._internal.challenge.destroy = function () {
     }).then(function (response) {
         if (response.success) {
             loadInfo();
-            CTFd._functions.events.eventAlert({
+            CTFd._functions.events.eventToast({
                 title: "Success",
                 html: "Your instance has been destroyed!",
                 button: "OK"
             });
         } else {
-            CTFd._functions.events.eventAlert({
+            CTFd._functions.events.eventToast({
                 title: "Fail",
                 html: response.message,
                 button: "OK"
@@ -146,13 +146,13 @@ CTFd._internal.challenge.renew = function () {
     }).then(function (response) {
         if (response.success) {
             loadInfo();
-            CTFd._functions.events.eventAlert({
+            CTFd._functions.events.eventToast({
                 title: "Success",
                 html: "Your instance has been renewed!",
                 button: "OK"
             });
         } else {
-            CTFd._functions.events.eventAlert({
+            CTFd._functions.events.eventToast({
                 title: "Fail",
                 html: response.message,
                 button: "OK"
@@ -194,13 +194,13 @@ CTFd._internal.challenge.boot = function () {
     }).then(function (response) {
         if (response.success) {
             loadInfo();
-            CTFd._functions.events.eventAlert({
+            CTFd._functions.events.eventToast({
                 title: "Success",
                 html: "Your instance has been deployed!",
                 button: "OK"
             });
         } else {
-            CTFd._functions.events.eventAlert({
+            CTFd._functions.events.eventToast({
                 title: "Fail",
                 html: response.message,
                 button: "OK"
